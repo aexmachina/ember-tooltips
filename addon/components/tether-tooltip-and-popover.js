@@ -184,9 +184,8 @@ export default EmberTetherComponent.extend({
   }),
 
   target: computed(function() {
-    const parentElement = this.$().parent();
-
-    let parentElementId = parentElement.attr('id');
+    const $element = this.$();
+    let parentElementId = $element && $element.parent().attr('id');
 
     if (!parentElementId) {
       parentElementId = `target-for-tooltip-or-popover-${tooltipOrPopoverCounterId}`;
